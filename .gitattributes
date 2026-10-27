@@ -1,0 +1,2 @@
+# Keep generated sample bytes identical to generator output on every platform.
+*.csv text eol=lf
