@@ -6,6 +6,10 @@ A small Streamlit dashboard for a fictional multi-module B2B web application. It
 
 All data is generated from invented assumptions with a fixed seed. No real telemetry, company, customer, or person is represented.
 
+![Dashboard showing daily active users with weekends shaded, and module usage as ranked bars labelled with counts and shares](docs/dashboard.png)
+
+*Screenshot of the default view (fictional data). Colours follow `.streamlit/config.toml`, which matches the portfolio site; the dashboard also has a dark theme.*
+
 ## Quick start (Windows, PowerShell or cmd, from the project root)
 
 ```
@@ -32,6 +36,8 @@ Tested by the implementing agent on Windows 11 Home (10.0.26300) with Python 3.1
 | `usage_analytics/metrics.py` | Filters and metric calculations (no UI code) |
 | `generate_sample_data.py` | Writes `data/synthetic_events.csv` (replaces the file each run); `--seed N` takes an ASCII integer, `--output PATH` another file |
 | `app.py` | Streamlit dashboard; presentation only |
+| `.streamlit/config.toml` | Light and dark theme colours shared with the portfolio site |
+| `docs/dashboard.png` | README screenshot of the default view |
 | `tests/fixtures/tiny_events.csv` | 26-row hand-traced fixture; trace table in `tests/conftest.py` |
 | `tests/` | Validation, metric, generator, and headless dashboard tests |
 
@@ -89,10 +95,13 @@ Funnel details:
 
 ## What each chart tells a product administrator
 
-- **Daily active users:** how many different people used the selected modules each day; the weekday/weekend pattern is part of the invented generator.
+- **Daily active users:** how many different people used the selected modules each day; weekends are shaded, and the weekday/weekend pattern is part of the invented generator.
 - **Event volume:** how much activity occurred; compare it with DAU to distinguish more users from more actions per user.
 - **Module usage:** where activity concentrates; a heavy user can inflate one module's event count.
-- **Ordered funnel:** how often a session that opens a page goes on to search and then view a detail.
+- **Ordered funnel:** how often a session that opens a page goes on to search and then view a detail; each bar is labelled with its conversion from entry.
+- **Excluded rows by reason:** which validation rules removed rows from the whole file, ranked by count.
+
+Bar charts are ranked by value (the funnel keeps step order) and labelled directly; the exact numbers are in a table under each chart.
 
 ## Tests
 
