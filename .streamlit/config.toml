@@ -1,0 +1,16 @@
+# Matches the portfolio site's palette (h-yang-26.github.io):
+# blue = activity, teal = valid, amber = excluded or needs review.
+[theme]
+primaryColor = "#1C5785"
+
+[theme.light]
+primaryColor = "#1C5785"
+chartCategoricalColors = ["#1C5785", "#146C67", "#8A5A0C", "#7D8691"]
+
+[theme.dark]
+primaryColor = "#8CC0EA"
+chartCategoricalColors = ["#8CC0EA", "#6FCDC2", "#E6B15C", "#A9AEB5"]
+
+[client]
+# Hide the developer toolbar (Deploy button) for viewers.
+toolbarMode = "minimal"
