@@ -36,7 +36,7 @@ python3 -m venv .venv
 .venv/bin/python -m streamlit run app.py
 ```
 
-Tested by the implementing agent on Windows 11 Home (10.0.26300) with Python 3.13.15, pandas 3.1.0, Streamlit 1.66.1, Altair 6.3.0, pytest 9.1.1 (numpy 2.5.4 installed as a pandas dependency). `requirements.txt` pins exactly these versions; other package versions and Python releases have not been tested, except as noted here. Also tested by an agent on Ubuntu 24.04 with Python 3.13.18 and the same pinned packages (2026-10-29): all 44 tests pass, `generate_sample_data.py` reproduces the committed `data/synthetic_events.csv`, and the dashboard starts in a browser with the case study's headline figures (5,766 rows read, 5,735 valid events, 175 users, 1,520 sessions). macOS has not been tested.
+Tested by the implementing agent on Windows 11 Home (10.0.26300) with Python 3.13.15, pandas 3.1.0, Streamlit 1.66.1, Altair 6.3.0, pytest 9.1.1 (numpy 2.5.4 installed as a pandas dependency). `requirements.txt` pins exactly these versions; other package versions and Python releases have not been tested, except as noted here. Also tested by Claude on Ubuntu 24.04 with Python 3.13.18 and the same pinned packages (2026-10-29): all 44 tests pass, `generate_sample_data.py` reproduces the committed `data/synthetic_events.csv`, and the dashboard starts in a browser with the case study's headline figures (5,766 rows read, 5,735 valid events, 175 users, 1,520 sessions). macOS has not been tested.
 
 `USAGE_EVENTS_CSV=<path>` makes the dashboard read a different event file with the same columns.
 
@@ -138,7 +138,7 @@ Expected fixture values are derived by hand from the trace table in `tests/conft
 
 ## How this was built
 
-All data in this project is fictional, and the results say nothing about my employer’s systems. The project was built independently of my employer: AI tools did the implementation under my direction, and I approved the results. [How these were built](https://h-yang-26.github.io/how-these-were-built/) on the portfolio site explains who decided what and how the results were checked.
+All data in this project is fictional, and the results say nothing about my employer’s systems. The project was built independently of my employer: ChatGPT and Claude helped with design and planning, Codex and Claude Code did the technical work under my direction, and I made the judgment calls and approved the results. [How these were built](https://h-yang-26.github.io/how-these-were-built/) on the portfolio site explains who decided what and how the results were checked.
 
 ## Attribution and licenses
 
