@@ -36,7 +36,7 @@ python3 -m venv .venv
 .venv/bin/python -m streamlit run app.py
 ```
 
-Tested by the implementing agent on Windows 11 Home (10.0.26300) with Python 3.13.15, pandas 3.1.0, Streamlit 1.66.1, Altair 6.3.0, pytest 9.1.1 (numpy 2.5.4 installed as a pandas dependency). `requirements.txt` pins exactly these versions; other versions and Python releases have not been tested. Also tested by an agent on Ubuntu 24.04 with Python 3.13.18 and the same pinned packages (2026-10-29): all 44 tests pass, `generate_sample_data.py` reproduces the committed `data/synthetic_events.csv`, and the dashboard starts and shows the same figures. macOS has not been tested.
+Tested by the implementing agent on Windows 11 Home (10.0.26300) with Python 3.13.15, pandas 3.1.0, Streamlit 1.66.1, Altair 6.3.0, pytest 9.1.1 (numpy 2.5.4 installed as a pandas dependency). `requirements.txt` pins exactly these versions; other package versions and Python releases have not been tested, except as noted here. Also tested by an agent on Ubuntu 24.04 with Python 3.13.18 and the same pinned packages (2026-10-29): all 44 tests pass, `generate_sample_data.py` reproduces the committed `data/synthetic_events.csv`, and the dashboard starts in a browser with the case study's headline figures (5,766 rows read, 5,735 valid events, 175 users, 1,520 sessions). macOS has not been tested.
 
 `USAGE_EVENTS_CSV=<path>` makes the dashboard read a different event file with the same columns.
 
