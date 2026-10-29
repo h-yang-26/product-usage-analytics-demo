@@ -1,5 +1,9 @@
 # Product Usage Analytics Demo
 
+**Turns a raw event log into daily activity, module usage and an ordered funnel, with every excluded row accounted for.**
+
+[Read the case study](https://h-yang-26.github.io/projects/product-usage-analytics-demo/) · [How this was built](#how-this-was-built) · [Portfolio](https://h-yang-26.github.io/)
+
 **Synthetic demonstration; not actual company analytics.**
 
 A small Streamlit dashboard for a fictional multi-module B2B web application. It shows how raw timestamped events become clearly defined usage metrics: daily active users, event volume, module usage, and an ordered session funnel, with data-quality diagnostics kept separate from the usage numbers.
@@ -20,9 +24,19 @@ python -m venv .venv
 .venv\Scripts\python -m streamlit run app.py
 ```
 
-Streamlit prints a local URL (default `http://localhost:8501`). On macOS/Linux use `.venv/bin/python` instead of `.venv\Scripts\python`.
+Streamlit prints a local URL (default `http://localhost:8501`).
 
-Tested by the implementing agent on Windows 11 Home (10.0.26300) with Python 3.13.15, pandas 3.1.0, Streamlit 1.66.1, Altair 6.3.0, pytest 9.1.1 (numpy 2.5.4 installed as a pandas dependency). `requirements.txt` pins exactly these versions; other versions, Python releases, and operating systems have not been tested.
+### macOS / Linux
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python generate_sample_data.py
+.venv/bin/python -m pytest -q
+.venv/bin/python -m streamlit run app.py
+```
+
+Tested by the implementing agent on Windows 11 Home (10.0.26300) with Python 3.13.15, pandas 3.1.0, Streamlit 1.66.1, Altair 6.3.0, pytest 9.1.1 (numpy 2.5.4 installed as a pandas dependency). `requirements.txt` pins exactly these versions; other versions and Python releases have not been tested. Also tested by an agent on Ubuntu 24.04 with Python 3.13.18 and the same pinned packages (2026-10-29): all 44 tests pass, `generate_sample_data.py` reproduces the committed `data/synthetic_events.csv`, and the dashboard starts and shows the same figures. macOS has not been tested.
 
 `USAGE_EVENTS_CSV=<path>` makes the dashboard read a different event file with the same columns.
 
@@ -121,6 +135,10 @@ Expected fixture values are derived by hand from the trace table in `tests/conft
 - No live collection, authentication, database, or production scheduling.
 - Session ids are taken as given; there is no inactivity-timeout sessionization.
 - Funnel steps are fixed in code (`FUNNEL_STEPS`); the dashboard does not let users edit them.
+
+## How this was built
+
+All data in this project is fictional, and the results say nothing about my employer’s systems. The project was built independently of my employer: AI tools did the implementation under my direction, and I approved the results. [How these were built](https://h-yang-26.github.io/how-these-were-built/) on the portfolio site explains who decided what and how the results were checked.
 
 ## Attribution and licenses
 
